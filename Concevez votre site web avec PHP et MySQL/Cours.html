@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Cours</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="..\pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Cours</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#règles-du-php" id="toc-règles-du-php">Règles du
+PHP</a></li>
+<li><a href="#reconnaître-une-balise-php"
+id="toc-reconnaître-une-balise-php">Reconnaître une balise PHP</a></li>
+<li><a href="#types" id="toc-types">Types</a></li>
+<li><a href="#variables" id="toc-variables">Variables</a></li>
+<li><a href="#conditions" id="toc-conditions">Conditions</a>
+<ul>
+<li><a href="#et-ou-non-egal-comparaisons"
+id="toc-et-ou-non-egal-comparaisons">Et, Ou, Non, Egal,
+Comparaisons</a></li>
+<li><a href="#if-else-elseif" id="toc-if-else-elseif">If, Else,
+Elseif</a></li>
+<li><a href="#if-sur-une-balise" id="toc-if-sur-une-balise">If sur une
+balise</a></li>
+<li><a href="#switch" id="toc-switch">Switch</a></li>
+</ul></li>
+<li><a href="#regroupement-de-fonctions"
+id="toc-regroupement-de-fonctions">Regroupement de fonctions</a>
+<ul>
+<li><a href="#echo" id="toc-echo">echo()</a></li>
+<li><a href="#infos" id="toc-infos">infos(</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="règles-du-php">Règles du PHP</h2>
+<p>On peut :</p>
+<ul>
+<li>Insérez une balise PHP au milieu du code HTML</li>
+<li>On peut placer une balise PHP n’importe où dans le code</li>
+<li>Une ligne se términe par “<strong>;</strong>”</li>
+</ul>
+<h2 id="reconnaître-une-balise-php">Reconnaître une balise PHP</h2>
+<p>Les différents types de balise pour du PHP :</p>
+<pre><code>&lt;?php ?&gt;
+&lt;? ?&gt; 
+&lt;% %&gt; 
+&lt;?= ?&gt;</code></pre>
+<h2 id="types">Types</h2>
+<p>Sous PHP les types sont :</p>
+<ul>
+<li>string</li>
+<li>int</li>
+<li>float</li>
+<li>bool</li>
+<li>NULL</li>
+</ul>
+<p>Mais à la déclaration les types n’ont pas besoin d’être déclaré, PHP
+le fait automatiquement</p>
+<p>Le string peut être définie sous les formes :</p>
+<ul>
+<li>“texte”</li>
+<li>‘texte’</li>
+</ul>
+<h2 id="variables">Variables</h2>
+<p>Une variable est définie par “<strong>$variable</strong>”</p>
+<p>Cela donne :</p>
+<pre><code>&lt;?php
+$variable = &quot;truc&quot;; 
+$variable = 23; 
+$variable = 23.2; 
+?&gt;</code></pre>
+<p>Pour concaténer une variable l’on utilise “<strong>.</strong>” Ce qui
+donne :</p>
+<pre><code>&lt;?php
+$fullname = &#39;Baptiste&#39;;
+echo &#39;Bonjour &#39; . $fullname . &#39; et bienvenue sur le site !&#39;; 
+?&gt;</code></pre>
+<h2 id="conditions">Conditions</h2>
+<h3 id="et-ou-non-egal-comparaisons">Et, Ou, Non, Egal,
+Comparaisons</h3>
+<p>Sous PHP les condiotions logiques sont :</p>
+<ul>
+<li>Et (&amp;&amp;)</li>
+<li>Ou (||)</li>
+<li>Non (!)</li>
+<li>Egal (==) (Fonctionne même pour les string)</li>
+<li>Comparaisons (&gt;, &lt;, &gt;=, &lt;=)</li>
+</ul>
+<h3 id="if-else-elseif">If, Else, Elseif</h3>
+<pre><code>&lt;?php
+$condition = &quot;Oui&quot;;
+
+if ($condition == &quot;Oui&quot;) {
+    // instructions à exécuter quand on est autorisé à entrer
+}
+elseif ($condition == &quot;Non&quot;) {
+    // instructions à exécuter quand on n&#39;est pas autorisé à entrer
+}
+else {
+    echo &quot;Euh, je ne comprends pas ton choix, tu peux me le rappeler s&#39;il te plaît ?&quot;;
+}
+?&gt;</code></pre>
+<h3 id="if-sur-une-balise">If sur une balise</h3>
+<p>L’ont peut utiliser une condition pour l’affichage d’une balise
+précise La syntaxe pour utiliser la condition diffère un peu :</p>
+<ul>
+<li>Il n’y a pas d’accolade.</li>
+<li>On ajoute : après la parenthèse fermante de l’instruction if .</li>
+<li>Et il faut ajouter une instruction endif;</li>
+</ul>
+<p>Ce qui donne :</p>
+<pre><code>&lt;?php $condition = true; ?&gt;
+
+&lt;?php if ($condition): ?&gt;      &lt;!-- Ne pas oublier le &quot;:&quot; --&gt;
+
+&lt;h1&gt;Texte à afficher&lt;/h1&gt;
+
+&lt;?php endif; ?&gt;       &lt;!-- Ni le &quot;;&quot; après le endif --&gt;</code></pre>
+<h3 id="switch">Switch</h3>
+<p>Dans le cas où on veut faire un If avec beaucoup de comparaison égale
+(==), switch permet de faire cela : <em>Le switch ne peut tester que
+l’égalité. Cela ne marche pas avec les autres symboles :&lt; &gt; &lt;=
+&gt;= !=</em></p>
+<pre><code>&lt;?php
+$grade = 10;
+
+switch ($grade) // on indique sur quelle variable on travaille
+{ 
+    case 0: // dans le cas où $grade vaut 0
+        echo &quot;Tu es vraiment un gros nul !!!&quot;;
+    break;
+    
+    case 5: // dans le cas où $grade vaut 5
+        echo &quot;Tu es très mauvais&quot;;
+    break;
+    
+    case 7: // dans le cas où $grade vaut 7
+        echo &quot;Tu es mauvais&quot;;
+    break;
+    
+    case 10: // etc. etc.
+        echo &quot;Tu as pile poil la moyenne, c&#39;est un peu juste…&quot;;
+    break;
+    
+    case 12:
+        echo &quot;Tu es assez bon&quot;;
+    break;
+    
+    case 16:
+        echo &quot;Tu te débrouilles très bien !&quot;;
+    break;
+    
+    case 20:
+        echo &quot;Excellent travail, c&#39;est parfait !&quot;;
+    break;
+    
+    default:
+        echo &quot;Désolé, je n&#39;ai pas de message à afficher pour cette note&quot;;
+}
+?&gt;</code></pre>
+<p>Pour faire switch :</p>
+<ul>
+<li>On indique au début du switch sur quelle variable on travaille, ici
+$grade</li>
+<li>On utilise des case pour analyser chaque cas : case 0 ,case 10 ,
+etc.</li>
+<li>Le mot-clé default à la fin est un peu l’équivalent du else</li>
+</ul>
+<p>Mais contrairement aux elseif , PHP ne s’arrête pas là et continue à
+lire les instructions des cases qui suivent ! <strong>Pour empêcher
+cela, utilisez l’instruction break !</strong></p>
+<h2 id="regroupement-de-fonctions">Regroupement de fonctions</h2>
+<h3 id="echo">echo()</h3>
+<p>L’instruction echo, on écrit l’instruction “<strong>echo</strong>”
+suivie du texte à afficher entre guillemets. <br> Il faut savoir qu’on a
+aussi le droit de demander d’afficher des balises. Par exemple, le code
+suivant fonctionne :</p>
+<pre><code>&lt;?php echo &quot;Ceci est du &lt;strong&gt;texte&lt;/strong&gt;&quot;; ?&gt;</code></pre>
+<p>Pour utiliser des guillemets ont protège en utilisant un
+antislash</p>
+<pre><code>&lt;?php echo &quot;Cette ligne a été écrite \&quot;uniquement\&quot; en PHP.&quot;; ?&gt;</code></pre>
+<h3 id="infos">infos(</h3>
+<p><strong>infos</strong> permet de faire script pour afficher les
+informations relatives à PHP pour le serveur web ; cela va nous donner
+toutes les informations de PHP</p>
+<pre><code>&lt;?php
+
+phpinfo(;</code></pre>
+</body>
+</html>
